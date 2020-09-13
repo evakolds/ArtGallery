@@ -6,11 +6,7 @@ public final class Guide {
 
     public Guide(String name, int eloquenceLevel) {
         this.name = name;
-
-        if (eloquenceLevel <= 10 && eloquenceLevel > 0)
-            this.eloquenceLevel = eloquenceLevel;
-        else
-            this.eloquenceLevel = 1;
+        this.eloquenceLevel = (eloquenceLevel > 0 && eloquenceLevel <= 10) ? eloquenceLevel : 1;
     }
 
     public String getName() {
