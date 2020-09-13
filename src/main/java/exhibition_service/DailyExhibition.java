@@ -42,8 +42,8 @@ public final class DailyExhibition {
     public int countRevenue() {
         int revenue = tickets.getRevenue();
 
-        System.out.println(organiser.getName() + " is calculating their revenue... Wow, it's $" +
-                revenue + "! Good day!");
+        System.out.println(organiser.getName() + " is calculating the revenue for '" + exhibition.getName() +
+                "'... $" + revenue + "!");
 
         return revenue;
     }
