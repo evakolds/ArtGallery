@@ -16,6 +16,8 @@ public final class Main {
         mainService.addPainting(new Painting("Creation of Adam", "Michelangelo", 1508));
         mainService.addPainting(new Painting("The Starry Night", "Vincent van Gogh", 1889));
         mainService.addPainting(new Painting("The Scream", "Edvard Munch", 1893));
+        mainService.addPainting(new Painting("The Persistence of Memory", "Salvador Dali", 1931));
+        mainService.addPainting(new Painting("Gold Marilyn Monroe", "Andy Warhol", 1962));
 
         System.out.println("Better!\n\nBut where is anyone? It's 8 am, the working day has started. " +
                 "Ah, here they are!");
@@ -37,6 +39,7 @@ public final class Main {
 
         mainService.addTicketPack(new TicketPack(5, 20 ));
         mainService.addTicketPack(new TicketPack(5, 15));
+        mainService.addTicketPack(new TicketPack(5, 30));
 
         System.out.print("\nThe first one is a true legend. It's ");
         mainService.addExhibition(new DailyExhibition(new Exhibition("The Old Masters", 0),
@@ -51,6 +54,11 @@ public final class Main {
                 mainService.getOrganiserByName("Mrs. Jackson"), mainService.getTicketPackByPrice(15)));
         mainService.openExhibition("The 19th Century Classics");
 
+        System.out.print("\nThe third, last exhibition is quite controversial. It's ");
+        mainService.addExhibition(new DailyExhibition(new Exhibition("Modern Art Masterpieces", 0),
+                mainService.getOrganiserByName("Mrs. Jackson"), mainService.getTicketPackByPrice(30)));
+        mainService.openExhibition("Modern Art Masterpieces");
+
         System.out.println("\n---\nThe visitors will start coming soon! Let's prepare headsets for them.");
         mainService.addHeadsets(8);
 
@@ -58,6 +66,7 @@ public final class Main {
         mainService.addVisitor(new Visitor("Rachel"));
         mainService.addVisitor(new Visitor("Viktor"));
         mainService.addVisitor(new Visitor("Claire"));
+        mainService.addVisitor(new Visitor("Wendy"));
 
         System.out.println("\nWhat is going on at the reception?");
         mainService.ticketConsultation("Robert", "Rachel");
@@ -67,10 +76,12 @@ public final class Main {
         mainService.sellTicket(15, "Robert", "Rachel");
         mainService.sellTicket(20,"Ronald", "Claire");
         mainService.sellTicket(20,"Robert", "Viktor");
+        mainService.sellTicket(30,"Robert", "Wendy");
         System.out.println();
 
         mainService.giveHeadset("Ronald","Claire");
         mainService.giveHeadset("Robert", "Viktor");
+        mainService.giveHeadset("Robert", "Wendy");
 
         System.out.println("\n---\nThe tour is getting started!");
         mainService.describePainting("Jane","Mona Lisa");
@@ -80,12 +91,13 @@ public final class Main {
 
         mainService.describePainting("Emily", "The Starry Night");
         mainService.interrupt("Rachel", "Emily");
-        mainService.discussPainting("Viktor", "Claire", "The Scream");
-        mainService.criticizePainting("Rachel", "The Scream");
+        mainService.discussPainting("Viktor", "Claire", "Gold Marilyn Monroe");
+        mainService.criticizePainting("Wendy", "The Scream");
 
         System.out.println("\n---\nWow, such a busy day! Now it's time to close the exhibitions.");
         mainService.closeExhibition("The Old Masters");
         mainService.closeExhibition("The 19th Century Classics");
+        mainService.closeExhibition("Modern Art Masterpieces");
 
         System.out.print("\nLook! ");
         mainService.mop(mainService.getJanitorByName("Daniel"));
